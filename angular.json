@@ -25,10 +25,8 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/sass/paper-kit.scss",
-              "src/assets/css/demo.css",
-              "src/assets/css/nucleo-icons.css"
+              "src/styles.scss",
+              "src/app/core/theme/paper-kit.scss"
             ],
             "scripts": []
           },
@@ -90,10 +88,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/sass/paper-kit.scss",
-              "src/assets/css/demo.css",
-              "src/assets/css/nucleo-icons.css"
+              "src/app/core/theme/paper-kit.scss"
             ],
             "scripts": []
           }
