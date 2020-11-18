@@ -8,7 +8,8 @@ import 'rxjs/add/operator/filter';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     const ua = window.navigator.userAgent;

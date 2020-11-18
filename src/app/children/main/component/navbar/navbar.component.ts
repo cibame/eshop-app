@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   handleScroll(event: Event): void {
-    console.log(event);
+
   }
 
   constructor(private _router: Router,
