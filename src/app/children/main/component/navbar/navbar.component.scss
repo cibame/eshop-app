@@ -1,0 +1,16 @@
+.nav-link {
+  position: relative;
+
+  .item-badge {
+    position: absolute;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    top: 0;
+    background-color: red;
+    text-align: center;
+    left: 50%;
+  }
+}

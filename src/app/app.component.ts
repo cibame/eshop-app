@@ -1,36 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { OrderService } from './core/firebase/service/order.service';
-import { ProductService } from './core/firebase/service/product.service';
+import {Component, OnInit} from '@angular/core';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'zero-booking';
 
-  constructor(
-    private readonly productService: ProductService,
-    private readonly orderService: OrderService
-  ) {}
+  constructor() { }
 
-  ngOnInit() {
-    this.productService.getProducts().subscribe(
-      (val) => {
-        console.log(val);
-      },
-      (err) => {
-        console.log(err);
+  ngOnInit(): void {
+    const ua = window.navigator.userAgent;
+    const trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+      // IE 11 => return version number
+      const rv = ua.indexOf('rv:');
+      const v = parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+      if (v) {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.add('ie-background');
       }
-    );
-    this.orderService.getOrders().subscribe(
-      (val) => {
-        console.log(val);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    }
+
   }
 }
