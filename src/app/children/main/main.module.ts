@@ -8,6 +8,7 @@ import {FooterComponent} from './component/footer/footer.component';
 import {NavbarComponent} from './component/navbar/navbar.component';
 import {MainComponent} from './main.component';
 import { MainRoutingModule } from './main.routing';
+import { PanelComponent } from './component/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MainRoutingModule } from './main.routing';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    ProductListComponent
+    ProductListComponent,
+    PanelComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,14 @@
+<div class="panel d-flex flex-column" [class.open]="isPanelOpen">
+  <div class="panel-header row align-items-center">
+    <div class="col-auto flex-grow-1">
+      <span>Carrello:&nbsp;</span>
+      <span>{{ cartItems.length }}</span>
+    </div>
+    <div class="back-button" (click)="back.emit()">
+      <i class="nc-icon nc-simple-remove"></i>
+    </div>
+  </div>
+  <div class="dropdown-divider" style="margin: 0.5rem -40px;"></div>
+  <div class="col-auto flex-grow-1"></div>
+
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MainService} from './main.service';
 
 @Component({
   selector: 'app-main',
@@ -6,8 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
-  mustRegisterToCoffeecApp: boolean;
+  isPanelOpen: boolean;
 
-  constructor() {
+  constructor(private _service: MainService) {
+    _service.isPanelOpen$.subscribe(val => this.isPanelOpen = val);
+  }
+
+  closePanel(): void {
+    this._service.closePanel();
   }
 }
