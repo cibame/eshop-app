@@ -2,7 +2,7 @@
   class="col-md-4 col-sm-6 col-12 d-flex flex-column">
   <div class="card card-profile card-plain flex-grow-1">
     <div class="card-avatar">
-      <a href="#avatar"><img src="./assets/img/faces/clem-onojeghuo-3.jpg"
+      <a href="#avatar"><img [src]="product.image"
           alt="..."></a>
     </div>
     <div class="card-block flex-grow-1">
@@ -12,23 +12,13 @@
           <h6 class="card-category">{{product.price}}</h6>
         </div>
       </a>
-      <p *ngIf="i %2 == 0"
-        class="card-description text-center">
-
-        Teamwork is so important that it is virtually impossible for you to reach the heights of your
-        capabilitiesdsfafdsafdsafsdasfddfasfsadfsadfsdafsdasfdafsdsfdafsda sdf sfda sfdas fdas fdas fda sdfa dfsa sfda
-        sfda sfda sfda
-        or make the money that you want without becoming very good at it.
-
-      </p>
-      <p *ngIf="i %2 != 0"
-        class="card-description text-center flex-grow-1">
+      <p class="card-description text-center flex-grow-1">
         {{ product.description }}
       </p>
     </div>
     <div class="card-footer text-center">
       <button type="button"
-        class="btn btn-danger" (click)="addToCart(product)">Default</button>
+        class="btn btn-danger" (click)="addToCart(product)">Aggiungi al carrello</button>
     </div>
   </div>
 </div>

@@ -23,7 +23,6 @@ export class NavbarComponent implements OnInit {
   ) {
     this.sidebarVisible = false;
     const navbar: HTMLElement = this._element.nativeElement.children[0];
-    console.log(navbar);
     this._router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
       if (window.outerWidth > 991) {
         window.document.children[0].scrollTop = 0;

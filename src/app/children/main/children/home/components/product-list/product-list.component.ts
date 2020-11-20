@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from '../../../../../../core/cart/cart.service';
-// import {Product} from '../../../../../../core/firebase/model/product.firebase';
-import {ProductService} from '../../../../../../core/firebase/service/product.service';
+import {ProductService} from '../../../../../../core/service/product.service';
 import {Product} from '../../../../../../core/model/product.model';
 
 @Component({
@@ -17,12 +16,9 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: Handle error
-    console.log('list');
     this._productService.getProducts().subscribe((res) => {
-      this._products = [...res, ...res, ...res, ...res, ...res, ...res] as unknown[] as Product[];
-      console.log(this._products);
-    });
+      this._products = res;
+    }, error => console.error(error));
   }
 
   addToCart(p: Product): void {

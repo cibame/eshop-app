@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {tap} from 'rxjs/operators';
 import {CartService} from '../cart.service';
 
@@ -14,9 +14,9 @@ export class CartIconComponent implements OnInit {
   constructor(cart: CartService) {
     cart.cart$
       .pipe(
-        tap(items => console.log(items))
+        tap(_ => this.count = cart.totalItemsQuantity())
       )
-      .subscribe(items => this.count = items.length);
+      .subscribe();
   }
 
   ngOnInit(): void {

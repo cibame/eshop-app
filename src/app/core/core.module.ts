@@ -1,11 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FirebaseModule } from './firebase/firebase.module';
-import { FirestoreService } from './firebase/service/firestore.service';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, FirebaseModule],
-  providers: [FirestoreService],
+  imports: [CommonModule],
+  providers: []
 })
-export class CoreModule {}
+export class CoreModule {
+}

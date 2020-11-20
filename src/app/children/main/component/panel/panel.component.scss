@@ -1,8 +1,12 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 :host {
 
   .panel {
     background-color: #FFFFFF;
-    width: 425px;
+    width: 100%;
 
     display: block;
     position: fixed;
@@ -51,4 +55,11 @@
     }
 
   }
+
+  @include media-breakpoint-up(sm) {
+    .panel {
+      width: 425px;
+    }
+  }
+
 }

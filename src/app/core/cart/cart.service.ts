@@ -13,7 +13,12 @@ export class CartService {
   }
 
   add(item: Product, quantity: number = 1): void {
-    this._cart$.value.push({item, quantity});
+    const ci = this._cart$.value.find(cartItem => cartItem.item === item);
+    if (ci) {
+      ci.quantity += quantity;
+    } else {
+      this._cart$.value.push({item, quantity});
+    }
     this._cart$.next(this._cart$.value);
   }
 
@@ -31,5 +36,10 @@ export class CartService {
 
   value(): number {
     return this._cart$.value.reduce((value, cartItem) => value + cartItem.item.price * cartItem.quantity, 0);
+  }
+
+  totalItemsQuantity(): number {
+    console.log(this._cart$);
+    return this._cart$.value.reduce((value, cartItem) => value + cartItem.quantity, 0);
   }
 }
