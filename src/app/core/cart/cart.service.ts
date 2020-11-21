@@ -10,6 +10,10 @@ export class CartService {
   >([]);
   cart$: Observable<CartItem<Product>[]> = this._cart$.asObservable();
 
+  get cart() {
+    return this._cart$.getValue();
+  }
+
   constructor() {}
 
   add(item: Product, quantity: number = 1): void {

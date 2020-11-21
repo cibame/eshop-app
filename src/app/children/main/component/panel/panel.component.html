@@ -1,18 +1,24 @@
-<div class="panel d-flex flex-column" [class.open]="isPanelOpen">
+<div class="panel d-flex flex-column"
+  [class.open]="isPanelOpen">
   <div class="panel-header row align-items-center">
     <div class="col-auto flex-grow-1">
       <span>Carrello:&nbsp;</span>
       <span>{{ count }}</span>
     </div>
-    <div class="back-button" (click)="back.emit()">
+    <div class="back-button"
+      (click)="back.emit()">
       <i class="nc-icon nc-simple-remove"></i>
     </div>
   </div>
-  <div class="dropdown-divider" style="margin: 0.5rem -40px;"></div>
-  <div class="col-auto flex-grow-1" style="overflow: auto">
-    <div class="row" *ngFor="let cartItem of cartItems">
+  <div class="dropdown-divider"
+    style="margin: 0.5rem -40px;"></div>
+  <div class="col-auto flex-grow-1"
+    style="overflow: auto">
+    <div class="row"
+      *ngFor="let cartItem of cartItems">
       <div class="col">
-        <img [src]="cartItem.item.image" height="100px" />
+        <img [src]="cartItem.item.image"
+          height="100px" />
       </div>
       <div class="col">
         <p>{{ cartItem.item.name }}</p>
@@ -21,5 +27,6 @@
         <p>x&nbsp;{{ cartItem.quantity }}</p>
       </div>
     </div>
+    <button (click)="sendOrder()"></button>
   </div>
 </div>
