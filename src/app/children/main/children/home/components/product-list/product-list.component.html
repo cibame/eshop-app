@@ -1,30 +1,32 @@
-<div *ngFor="let categoryProduct of _categoryProducts">
+<ng-container *ngFor="let categoryProduct of _categoryProducts">
   <h2 class="title">{{categoryProduct.category.name || ''}}</h2>
+  <div class="row">
 
-  <div *ngFor="let product of categoryProduct.products; index as i"
-    class="col-md-4 col-sm-6 col-12 d-flex flex-column">
-    <div class="card card-profile card-plain flex-grow-1">
-      <div class="card-avatar">
-        <a href="#avatar"><img [src]="product.image"
-            alt="..."></a>
-      </div>
-      <div class="card-block flex-grow-1">
-        <a href="#paper-kit">
-          <div class="author">
-            <h4 class="card-title">{{product.name}}</h4>
-            <h6 class="card-category">{{product.price}}</h6>
-          </div>
-        </a>
-        <p class="card-description text-center flex-grow-1">
-          {{ product.description }}
-        </p>
-      </div>
-      <div class="card-footer text-center">
-        <button type="button"
-          class="btn btn-danger"
-          (click)="addToCart(product)">Aggiungi al carrello</button>
+    <div *ngFor="let product of categoryProduct.products; index as i"
+         class="col-md-4 col-sm-6 col-12 d-flex flex-column">
+      <div class="card card-profile card-plain flex-grow-1">
+        <div class="card-avatar">
+          <a href="#avatar"><img [src]="product.image"
+                                 alt="..."></a>
+        </div>
+        <div class="card-block flex-grow-1">
+          <a href="#paper-kit">
+            <div class="author">
+              <h4 class="card-title">{{product.name}}</h4>
+              <h6 class="card-category">{{product.price}}</h6>
+            </div>
+          </a>
+          <p class="card-description text-center flex-grow-1">
+            {{ product.description }}
+          </p>
+        </div>
+        <div class="card-footer text-center">
+          <button type="button"
+                  class="btn btn-danger"
+                  (click)="addToCart(product)">Aggiungi al carrello
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
-</div>
+</ng-container>

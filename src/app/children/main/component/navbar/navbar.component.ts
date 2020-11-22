@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, Renderer2} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 import {MainService} from '../../main.service';
 
 @Component({
@@ -23,7 +24,11 @@ export class NavbarComponent implements OnInit {
   ) {
     this.sidebarVisible = false;
     const navbar: HTMLElement = this._element.nativeElement.children[0];
-    this._router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+    this._router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe((event: NavigationEnd) => {
       if (window.outerWidth > 991) {
         window.document.children[0].scrollTop = 0;
       } else {

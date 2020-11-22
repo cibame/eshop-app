@@ -37,7 +37,7 @@ export class ProductListComponent implements OnInit {
     );
   }
 
-  private parseCategories() {
+  private parseCategories(): void {
     this._products.forEach((product) => {
       const index = this._categoryProducts.findIndex(
         (c) => c.category?.id === product.category?.id

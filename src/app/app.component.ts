@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',

@@ -10,7 +10,7 @@ export class CartService {
   >([]);
   cart$: Observable<CartItem<Product>[]> = this._cart$.asObservable();
 
-  get cart() {
+  get cart(): CartItem<Product>[] {
     return this._cart$.getValue();
   }
 
