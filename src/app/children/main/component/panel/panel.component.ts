@@ -28,7 +28,7 @@ export class PanelComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  sendOrder() {
+  sendOrder(): void {
     this.orderService.sendOrder(this.cartService.cart).subscribe(
       (res) => {
         console.log(res);
