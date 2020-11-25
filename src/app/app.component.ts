@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,8 @@ import 'rxjs/add/operator/filter';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     const ua = window.navigator.userAgent;

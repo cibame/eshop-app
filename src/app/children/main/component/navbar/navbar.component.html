@@ -4,6 +4,8 @@
     <div class="navbar-translate">
       <a class="navbar-brand"
         href="https://www.creative-tim.com">Paper Kit 2 Angular</a>
+      <span class="flex-grow-1"></span>
+      <app-cart-icon class="d-lg-none" (click)="togglePanel()"></app-cart-icon>
       <button class="navbar-toggler navbar-burger"
         type="button"
         data-toggle="collapse"
@@ -55,17 +57,12 @@
         </li>
         <li class="nav-item">
           <a href="http://pk2-angular.creative-tim.com/documentation/tutorial"
-            class="nav-link"
-            target="_blank"><i class="nc-icon nc-book-bookmark"></i> Documentation</a>
+             class="nav-link"
+             target="_blank"><i class="nc-icon nc-book-bookmark"></i> Documentation</a>
         </li>
-        <li class="nav-item">
-          <div class="nav-link">
-            <i class="nc-icon nc-cart-simple"> </i>
-            <span class="item-badge">99</span>
-          </div>
-        </li>
-
       </ul>
     </div>
+    <app-cart-icon class="d-none d-lg-block" (click)="togglePanel()"></app-cart-icon>
   </div>
 </nav>
+<!--<app-cart-panel></app-cart-panel>-->

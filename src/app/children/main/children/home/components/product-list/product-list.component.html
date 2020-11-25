@@ -1,34 +1,25 @@
-<div *ngFor="let product of _products; index as i"
-  class="col-md-4 col-sm-6 col-12 d-flex flex-column">
-  <div class="card card-profile card-plain flex-grow-1">
-    <div class="card-avatar">
-      <a href="#avatar"><img src="./assets/img/faces/clem-onojeghuo-3.jpg"
-          alt="..."></a>
-    </div>
-    <div class="card-block flex-grow-1">
-      <a href="#paper-kit">
-        <div class="author">
-          <h4 class="card-title">{{product.name}}</h4>
-          <h6 class="card-category">{{product.price}}</h6>
-        </div>
-      </a>
-      <p *ngIf="i %2 == 0"
-        class="card-description text-center">
-
-        Teamwork is so important that it is virtually impossible for you to reach the heights of your
-        capabilitiesdsfafdsafdsafsdasfddfasfsadfsadfsdafsdasfdafsdsfdafsda sdf sfda sfdas fdas fdas fda sdfa dfsa sfda
-        sfda sfda sfda
-        or make the money that you want without becoming very good at it.
-
-      </p>
-      <p *ngIf="i %2 != 0"
-        class="card-description text-center flex-grow-1">
-        {{ product.description }}
-      </p>
-    </div>
-    <div class="card-footer text-center">
-      <button type="button"
-        class="btn btn-danger">Default</button>
-    </div>
+<ng-container *ngFor="let categoryProduct of _categoryProducts">
+  <div class="product-category">
+    <h2 style="text-align: center" *ngIf="categoryProduct.category.name">
+      <span class="name">{{ categoryProduct.category.name }}</span>
+    </h2>
+    <div class="description" *ngIf="categoryProduct.category.description" [innerHTML]="categoryProduct.category.description"></div>
   </div>
-</div>
+  <ul class="product-list container">
+    <li class="product-item row" *ngFor="let product of categoryProduct.products; index as i">
+      <div class="col-auto flex-grow-1">
+        <div class="first-line">
+          <div class="d-flex align-items-start">
+            <i ngbTooltip="Aggiungi all'ordine" class="add-to-cart icon-button align-self-center nc-icon nc-bag-16" (click)="addToCart(product)"></i>
+            <div class="name">{{ product.name }}</div>
+            <div class="spacer dotted flex-grow-1">&nbsp;</div>
+            <div class="price">{{ product.price | currency:'EUR' }}</div>
+          </div>
+        </div>
+        <div class="subtitle">{{ product.subtitle }}</div>
+        <div class="ingredients">{{ product.subtitle }}</div>
+        <div class="description">{{ product.subtitle }}</div>
+      </div>
+    </li>
+  </ul>
+</ng-container>

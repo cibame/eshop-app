@@ -1,0 +1,29 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+:host {
+  .banner {
+    width: 100%;
+    margin: auto;
+
+    img {
+      width: 100%;
+    }
+  }
+  .instructions {
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .banner {
+      width: 60%;
+    }
+
+    .instructions {
+      font-size: 20px;
+    }
+  }
+}
