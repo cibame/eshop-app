@@ -28,7 +28,7 @@ export class CartService {
 
   remove(item: Product): void {
     this._cart$.next(
-      this._cart$.value.filter((cartItem) => cartItem.item === item)
+      this._cart$.value.filter((cartItem) => cartItem.item !== item)
     );
   }
 

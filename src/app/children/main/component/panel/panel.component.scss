@@ -46,6 +46,8 @@
 
     .panel-header {
       height: 70px;
+      font-size: 16px;
+      font-weight: normal;
 
       .back-button {
         padding: 10px;
@@ -75,11 +77,38 @@
       height: 70px;
     }
 
+    .product-list {
+      font-size: 16px;
+      font-weight: normal;
+
+      .product-item {
+
+        .icon-button {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &:hover {
+          .icon-button {
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+
+
+      .total {
+        font-weight: bold;
+      }
+    }
+
+
   }
 
   @include media-breakpoint-up(sm) {
     .panel {
       width: 425px;
+      //padding: 10px 20px;
     }
   }
 

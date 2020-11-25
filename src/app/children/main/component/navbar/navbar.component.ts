@@ -9,6 +9,8 @@ import {MainService} from '../../main.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  private SCROLL_TRESHOLD = 150;
+
   private toggleButton: any;
   private sidebarVisible: boolean;
 
@@ -44,7 +46,7 @@ export class NavbarComponent implements OnInit {
 
     this._renderer.listen('window', 'scroll', (event) => {
       const n = window.scrollY;
-      if (n > 150 || window.pageYOffset > 150) {
+      if (n > this.SCROLL_TRESHOLD || window.pageYOffset > this.SCROLL_TRESHOLD) {
         // add logic
         navbar.children[0].classList.remove('navbar-transparent');
       } else {

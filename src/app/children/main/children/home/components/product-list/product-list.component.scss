@@ -1,0 +1,137 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+:host {
+
+  .product-category {
+    font-weight: normal;
+
+    .name {
+      font-size: 18px;
+      color: #FFFFFF;
+      background-color: rgb(228, 30, 41);
+      font-weight: bold;
+    }
+
+    .description {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+  }
+
+  .product-list {
+    margin: 20px auto;
+    padding: 0;
+    font-weight: normal;
+
+    .product-item {
+      margin-bottom: 2px;
+
+      .first-line {
+        transition: all 0.2s linear;
+        margin-left: -28px;
+
+        &.dotted {
+          border-bottom: 2px dotted rgba(0, 0, 0, 0.1);
+          margin-bottom: 2px;
+        }
+
+        .spacer {
+          min-width: 25px;
+          margin-left: 5px;
+          margin-right: 5px;
+          &.dotted {
+            border-bottom: 2px dotted rgba(0, 0, 0, 0.1);
+            margin-bottom: 5px;
+          }
+        }
+
+        .add-to-cart {
+          margin-right: 10px;
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+
+      .name {
+        font-size: 16px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      .ingredients {
+        font-size: 14px;
+        color: rgb(235, 110, 84);
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+
+      &:hover {
+        .first-line {
+          margin-left: 0;
+
+          &.dotted {
+            border-bottom: 2px dotted rgba(0, 0, 0, 0.2);
+          }
+
+          .spacer {
+            &.dotted {
+              border-bottom: 2px dotted rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          .add-to-cart {
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .product-category {
+      .name {
+        font-size: 24px;
+      }
+
+      .description {
+        font-size: 20px;
+      }
+    }
+
+    .product-list {
+      .product-item {
+        .name {
+          font-size: 20px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+        }
+
+        .ingredients {
+          font-size: 14px;
+          color: rgb(235, 110, 84);
+        }
+
+        .description {
+          font-size: 14px;
+        }
+
+        .price {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {CartModule} from '../../core/cart/cart.module';
 import { ProductListComponent } from './children/home/components/product-list/product-list.component';
 import { HomeComponent } from './children/home/home.component';
@@ -25,7 +26,8 @@ import { PanelComponent } from './component/panel/panel.component';
     RouterModule,
     HttpClientModule,
     MainRoutingModule,
-    CartModule
-  ],
+    CartModule,
+    NgbTooltipModule
+  ]
 })
 export class MainModule {}
