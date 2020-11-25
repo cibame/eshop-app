@@ -10,7 +10,7 @@
       <div class="col-auto flex-grow-1">
         <div class="first-line">
           <div class="d-flex align-items-start">
-            <i ngbTooltip="Aggiungi all'ordine" class="add-to-cart icon-button align-self-center nc-icon nc-bag-16" (click)="addToCart(product)"></i>
+            <i class="add-to-cart icon-button align-self-center nc-icon nc-bag-16" (click)="addToCart(product)"></i>
             <div class="name">{{ product.name }}</div>
             <div class="spacer dotted flex-grow-1">&nbsp;</div>
             <div class="price">{{ product.price | currency:'EUR' }}</div>

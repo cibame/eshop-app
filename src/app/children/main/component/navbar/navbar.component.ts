@@ -9,7 +9,7 @@ import {MainService} from '../../main.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  private SCROLL_TRESHOLD = 150;
+  private SCROLL_TRESHOLD = 100;
 
   private toggleButton: any;
   private sidebarVisible: boolean;
