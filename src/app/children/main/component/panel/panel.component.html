@@ -13,28 +13,8 @@
   </div>
   <div class="dropdown-divider"
        style="margin: 0.5rem -40px;"></div>
-  <div class="product-list" *ngIf="cartItems?.length">
-    <div class="product-item" *ngFor="let cartItem of cartItems">
-      <div class="row">
-        <div class="col flex-grow-1">{{ cartItem.item.name }}</div>
-        <i class="icon-button col-auto align-self-center nc-icon nc-simple-remove" (click)="remove(cartItem)"></i>
-      </div>
-      <div class="row">
-        <i class="icon-button col-auto align-self-center nc-icon nc-simple-delete" (click)="decrease(cartItem)"></i>
-        <i class="icon-button col-auto align-self-center nc-icon nc-simple-add" (click)="increase(cartItem)"></i>
-        <div class="col flex-grow-1"></div>
-        <div class="col-auto">{{ cartItem.quantity }}&nbsp;x</div>
-        <div class="col-auto" style="width: 100px; text-align: right;">{{ cartItem.item.price | currency:'EUR' }}</div>
-      </div>
-    </div>
-    <hr>
-    <div class="row total">
-      <div class="col flex-grow-1">Totale</div>
-      <div class="col-auto" style="width: 100px; text-align: right;">{{ value | currency:'EUR' }}</div>
-    </div>
-  </div>
-  <div class="product-list" *ngIf="!cartItems?.length">
-    Non ci sono elementi nel carrello...
+  <div class="panel-content">
+    <app-cart-content [cartItems]="cartItems" [value]="value"></app-cart-content>
   </div>
   <div class="dropdown-divider"
        style="margin: 0.5rem -40px;"></div>
@@ -43,7 +23,8 @@
     <button type="button"
             class="btn"
             [disabled]="!cartItems.length"
-            (click)="sendOrder()">Invia Ordine
+            style="width: 100%"
+            (click)="sendOrder()">Procedi all'ordine
     </button>
   </div>
 </div>

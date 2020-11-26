@@ -31,21 +31,6 @@ export class PanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  remove(cartItem: CartItem<Product>): void {
-    this.cartService.remove(cartItem.item);
-  }
-
-  increase(cartItem: CartItem<Product>): void {
-    this.cartService.changeQuantity(cartItem.item, cartItem.quantity + 1);
-  }
-
-  decrease(cartItem: CartItem<Product>): void {
-    if (cartItem.quantity <= 1) {
-      return;
-    }
-    this.cartService.changeQuantity(cartItem.item, cartItem.quantity - 1);
-  }
-
   sendOrder(): void {
     this.orderService.sendOrder(this.cartService.cart).subscribe(
       (res) => {
