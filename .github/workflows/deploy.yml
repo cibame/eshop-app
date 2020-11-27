@@ -2,7 +2,9 @@ name: Deploy to production on Release creation
 
 on:
   push:
-    branches: [develop, master]
+    branches:
+      - develop
+      - master
 
 jobs:
   build:
@@ -85,3 +87,10 @@ jobs:
 
       - name: Logout from docker
         run: docker logout
+
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DISPATCH_PAT }}
+          repository: pablosproject/eshop-devops
+          event-type: package-published
