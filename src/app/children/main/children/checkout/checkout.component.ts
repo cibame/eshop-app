@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit {
       acceptance: [false, Validators.required]
     });
 
-    this.deliveryForm = this.formBuilder.group({
+    this.pickupForm = this.formBuilder.group({
       contactInfo: ['', Validators.required],
       firstName: [''],
       lastName: ['', Validators.required],
@@ -51,8 +51,17 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  onSubmitDelivery(): void {
     console.log(this.deliveryForm.getRawValue());
+  }
+
+  onSubmitPickup(): void {
+    console.log(this.pickupForm.getRawValue());
+  }
+
+  resetForms(): void {
+    this.deliveryForm.reset();
+    this.pickupForm.reset();
   }
 
 }

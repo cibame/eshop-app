@@ -6,10 +6,10 @@
 
           <ul ngbNav #nav="ngbNav" [(activeId)]="active" id="tabs" class="nav nav-tabs d-flex justify-content-center" role="tablist">
             <li class="nav-item" [ngbNavItem]="1">
-              <a class="nav-link" data-toggle="tab" role="tab" ngbNavLink>Take away</a>
+              <a class="nav-link" data-toggle="tab" role="tab" ngbNavLink (click)="resetForms()">Take away</a>
               <ng-template ngbNavContent>
                 <!-- Pickup form -->
-                <form [formGroup]="pickupForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+                <form [formGroup]="pickupForm" (ngSubmit)="onSubmitPickup()" class="needs-validation" novalidate>
                   <div class="form-section">
                     <div class="form-section-header">Informazioni di contatto</div>
                     <div class="form-row">
@@ -28,14 +28,14 @@
                         <div class="form-label-group">
                           <input type="text"
                                  class="form-control"
-                                 [class.is-invalid]="deliveryForm.get('lastName').invalid && (deliveryForm.get('lastName').dirty || deliveryForm.get('lastName').touched)"
+                                 [class.is-invalid]="pickupForm.get('lastName').invalid && (pickupForm.get('lastName').dirty || pickupForm.get('lastName').touched)"
                                  id="pickupLastName"
                                  placeholder="Cognome"
                                  formControlName="lastName"
                           >
                           <label for="pickupLastName">Cognome</label>
                           <div class="invalid-feedback">
-                            <span *ngIf="deliveryForm.get('lastName').errors.required">Inserisci il tuo cognome</span>
+                            <span *ngIf="pickupForm.get('lastName').errors?.required">Inserisci il tuo cognome</span>
                           </div>
                         </div>
                       </div>
@@ -45,7 +45,7 @@
                         <div class="form-label-group">
                           <input type="text"
                                  class="form-control"
-                                 [class.is-invalid]="deliveryForm.get('contactInfo').invalid && (deliveryForm.get('contactInfo').dirty || deliveryForm.get('contactInfo').touched)"
+                                 [class.is-invalid]="pickupForm.get('contactInfo').invalid && (pickupForm.get('contactInfo').dirty || pickupForm.get('contactInfo').touched)"
                                  id="pickupContactInfo"
                                  placeholder="Email o numero di cellulare"
                                  formControlName="contactInfo"
@@ -53,7 +53,7 @@
                           <label for="pickupContactInfo">Email o numero di cellulare</label>
                           <div class="invalid-feedback">
                             <span
-                              *ngIf="deliveryForm.get('contactInfo').errors.required">Inserisci una email o un numero di cellulare</span>
+                              *ngIf="pickupForm.get('contactInfo').errors?.required">Inserisci una email o un numero di cellulare</span>
                           </div>
                           <small class="form-text text-muted">Useremo queste informazioni per aggiornarti sullo stato del tuo
                             ordine.</small>
@@ -94,10 +94,10 @@
               </ng-template>
             </li>
             <li class="nav-item" [ngbNavItem]="2">
-              <a class="nav-link" data-toggle="tab" role="tab" ngbNavLink>Delivery</a>
+              <a class="nav-link" data-toggle="tab" role="tab" ngbNavLink (click)="resetForms()">Delivery</a>
               <ng-template ngbNavContent>
                 <!-- Delivery form -->
-                <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+                <form [formGroup]="deliveryForm" (ngSubmit)="onSubmitDelivery()" class="needs-validation" novalidate>
                   <div class="form-section">
                     <div class="form-section-header">Informazioni di contatto</div>
                     <div class="form-row">
@@ -113,7 +113,7 @@
                           <label for="contactInfo">Email o numero di cellulare</label>
                           <div class="invalid-feedback">
                             <span
-                              *ngIf="deliveryForm.get('contactInfo').errors.required">Inserisci una email o un numero di cellulare</span>
+                              *ngIf="deliveryForm.get('contactInfo').errors?.required">Inserisci una email o un numero di cellulare</span>
                           </div>
                           <small class="form-text text-muted">Useremo queste informazioni per aggiornarti sullo stato del tuo
                             ordine.</small>
@@ -148,7 +148,7 @@
                           >
                           <label for="lastName">Cognome</label>
                           <div class="invalid-feedback">
-                            <span *ngIf="deliveryForm.get('lastName').errors.required">Inserisci il tuo cognome</span>
+                            <span *ngIf="deliveryForm.get('lastName').errors?.required">Inserisci il tuo cognome</span>
                           </div>
                         </div>
                       </div>
@@ -165,7 +165,7 @@
                           >
                           <label for="address">Indirizzo</label>
                           <div class="invalid-feedback">
-                            <span *ngIf="deliveryForm.get('address').errors.required">Inserisci il tuo indirizzo</span>
+                            <span *ngIf="deliveryForm.get('address').errors?.required">Inserisci il tuo indirizzo</span>
                           </div>
                         </div>
                       </div>

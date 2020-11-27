@@ -25,8 +25,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss",
-              "src/app/core/theme/paper-kit.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -87,8 +86,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss",
-              "src/app/core/theme/paper-kit.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
