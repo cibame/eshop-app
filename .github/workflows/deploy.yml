@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       # - name: Read .nvmrc
       #   run: echo ::set-output name=NVMRC::$(cat .nvmrc)
@@ -39,7 +39,7 @@ jobs:
     needs: [build]
     steps:
       - name: Check out the repo
-        uses: actions/checkout@2.3.4
+        uses: actions/checkout@v2
 
       # - name: Get tag number
       #   id: tag
@@ -79,7 +79,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags:  eshop/app:latest
+          tags: eshop/app:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
