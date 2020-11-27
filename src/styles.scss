@@ -2,18 +2,4 @@
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
-
-.icon-button {
-  font-size: 18px;
-  font-weight: normal;
-  transition: all 0.1s linear;
-  cursor: pointer;
-
-  &:active {
-    transition: none;
-    font-size: 22px;
-    margin-left: -2px;
-    margin-top: -2px;
-    margin-bottom: -5px;
-  }
-}
+@import "app/core/scss/global";

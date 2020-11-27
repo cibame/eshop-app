@@ -16,7 +16,8 @@ import { CartContentComponent } from './cart-content/cart-content.component';
     CartService
   ],
   exports: [
-    CartIconComponent
+    CartIconComponent,
+    CartContentComponent
   ]
 })
 export class CartModule {

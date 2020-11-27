@@ -1,0 +1,34 @@
+@import "partial/floating-label";
+
+.icon-button {
+  font-size: 18px;
+  font-weight: normal;
+  transition: all 0.1s linear;
+  cursor: pointer;
+
+  &:active {
+    transition: none;
+    font-size: 22px;
+    margin-left: -2px;
+    margin-top: -2px;
+    margin-bottom: -5px;
+  }
+}
+
+.form-control {
+  &.is-invalid {
+    transition: none;
+  }
+}
+
+.form-label-group {
+  margin-bottom: 0;
+}
+//.form-label-group {
+//  label {
+//    color: #CCCCCC;
+//  }
+//}
+//.form-label-group input:not(:placeholder-shown) ~ label {
+//  color: #CCCCCC;
+//}
