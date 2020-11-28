@@ -3,7 +3,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../model/product.model';
 import { CartItem } from './model/cart-item.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CartService {
   private _cart$: BehaviorSubject<CartItem<Product>[]> = new BehaviorSubject<
     CartItem<Product>[]

@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routing';
-import { MainModule } from './children/main/main.module';
-import { CoreModule } from './core/core.module';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app.routing';
+import {MainModule} from './children/main/main.module';
+import {FooterComponent} from './core/component/footer/footer.component';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,9 +18,13 @@ import { CoreModule } from './core/core.module';
     RouterModule,
     AppRoutingModule,
     MainModule,
-    CoreModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [
+    FooterComponent
+  ]
 })
-export class AppModule {}
+export class AppModule {
+}
