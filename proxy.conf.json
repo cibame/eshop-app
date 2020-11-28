@@ -1,10 +1,10 @@
 {
   "/api": {
-  "target": "http://167.99.253.226:3000",
+    "target": "http://admin.zeroezero.eu",
     "secure": false,
     "pathRewrite": {
-    "^/api": ""
-  },
-  "changeOrigin": true
-}
+      "^/api": ""
+    },
+    "changeOrigin": true
+  }
 }
