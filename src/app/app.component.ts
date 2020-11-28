@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
+import {ScrollerService} from './core/service/scroller.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor() {
+  constructor(router: Router,
+              scroller: ScrollerService) {
+    router.events
+      .pipe(
+        filter(event => event instanceof NavigationStart)
+      )
+      .subscribe((event: NavigationEnd) => scroller.scrollToTop());
   }
 
   ngOnInit(): void {

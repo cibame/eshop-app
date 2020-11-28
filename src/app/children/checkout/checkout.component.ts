@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {tap} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {takeUntil, tap} from 'rxjs/operators';
 import {CartService} from '../../core/cart/cart.service';
 import {CartItem} from '../../core/cart/model/cart-item.model';
 import {Product} from '../../core/model/product.model';
@@ -11,7 +12,9 @@ import {OrderService} from '../../core/service/order.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit, OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject<void>();
+
   active = 1;
   count = 0;
   value = 0;
@@ -26,8 +29,11 @@ export class CheckoutComponent implements OnInit {
     private readonly formBuilder: FormBuilder
   ) {
     cartService.cart$
-      .pipe(tap((_) => (this.count = cartService.totalItemsQuantity())))
-      .pipe(tap((_) => (this.value = cartService.value())))
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        tap((_) => (this.count = cartService.totalItemsQuantity())),
+        tap((_) => (this.value = cartService.value()))
+      )
       .subscribe((res) => (this.cartItems = res));
 
     this.deliveryForm = this.formBuilder.group({
@@ -51,17 +57,9 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmitDelivery(): void {
-    console.log(this.deliveryForm.getRawValue());
-  }
-
-  onSubmitPickup(): void {
-    console.log(this.pickupForm.getRawValue());
-  }
-
-  resetForms(): void {
-    this.deliveryForm.reset();
-    this.pickupForm.reset();
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

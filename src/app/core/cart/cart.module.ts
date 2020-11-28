@@ -1,8 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {CartContentComponent} from './cart-content/cart-content.component';
 import {CartIconComponent} from './cart-icon/cart-icon.component';
-import {CartService} from './cart.service';
-import { CartContentComponent } from './cart-content/cart-content.component';
 
 @NgModule({
   declarations: [
@@ -11,9 +10,6 @@ import { CartContentComponent } from './cart-content/cart-content.component';
   ],
   imports: [
     CommonModule
-  ],
-  providers: [
-    CartService
   ],
   exports: [
     CartIconComponent,

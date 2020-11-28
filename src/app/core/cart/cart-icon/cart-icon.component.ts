@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {tap} from 'rxjs/operators';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subject} from 'rxjs';
+import {takeUntil, tap} from 'rxjs/operators';
 import {CartService} from '../cart.service';
 
 @Component({
@@ -7,13 +8,15 @@ import {CartService} from '../cart.service';
   templateUrl: './cart-icon.component.html',
   styleUrls: ['./cart-icon.component.scss']
 })
-export class CartIconComponent implements OnInit {
+export class CartIconComponent implements OnInit, OnDestroy {
+  private unsubscribe$: Subject<void> = new Subject<void>();
 
   count: number;
 
   constructor(cart: CartService) {
     cart.cart$
       .pipe(
+        takeUntil(this.unsubscribe$),
         tap(_ => this.count = cart.totalItemsQuantity())
       )
       .subscribe();
@@ -22,4 +25,8 @@ export class CartIconComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }

@@ -7,6 +7,7 @@ import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {CartModule} from '../../core/cart/cart.module';
 import {CoreModule} from '../../core/core.module';
 import {CheckoutComponent} from './checkout.component';
+import {CheckoutGuard} from './checkout.guard';
 import {CheckoutRoutingModule} from './checkout.routing';
 import {DeliveryFormComponent} from './children/information/component/delivery-form/delivery-form.component';
 import {PickupFormComponent} from './children/information/component/pickup-form/pickup-form.component';

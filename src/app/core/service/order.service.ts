@@ -45,7 +45,6 @@ export class OrderService {
         quantity: c.quantity,
       })),
     };
-    console.log(order);
     return this._http.post(environment.baseUrl + '/orders', order);
   }
 }

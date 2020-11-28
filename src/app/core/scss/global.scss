@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
 @import "partial/floating-label";
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, input, select, textarea {
@@ -30,11 +33,19 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 .form-label-group {
   margin-bottom: 0;
 }
-//.form-label-group {
-//  label {
-//    color: #CCCCCC;
-//  }
-//}
-//.form-label-group input:not(:placeholder-shown) ~ label {
-//  color: #CCCCCC;
-//}
+
+.shadow-right {
+  @include media-breakpoint-up(sm) {
+    background-size: 13px 100%;
+    padding-right: 30px;
+    background: url('~src/assets/images/paper-shadow-right.png') no-repeat right center;
+  }
+}
+
+.shadow-left {
+  @include media-breakpoint-up(sm) {
+    background-size: 13px 100%;
+    padding-left: 30px;
+    background: url('~src/assets/images/paper-shadow-left.png') no-repeat left center;
+  }
+}

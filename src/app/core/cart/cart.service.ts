@@ -19,7 +19,7 @@ export class CartService {
   constructor() {}
 
   add(item: Product, quantity: number = 1): void {
-    const ci = this._cart$.value.find((cartItem) => cartItem.item === item);
+    const ci = this._cart$.value.find((cartItem) => cartItem.item.id === item.id);
     if (ci) {
       ci.quantity += quantity;
     } else {
@@ -30,12 +30,12 @@ export class CartService {
 
   remove(item: Product): void {
     this._cart$.next(
-      this._cart$.value.filter((cartItem) => cartItem.item !== item)
+      this._cart$.value.filter((cartItem) => cartItem.item.id !== item.id)
     );
   }
 
   changeQuantity(item: Product, quantity: number = 1): void {
-    const ci = this._cart$.value.find((cartItem) => cartItem.item === item);
+    const ci = this._cart$.value.find((cartItem) => cartItem.item.id === item.id);
     if (ci) {
       ci.quantity = quantity;
     }
@@ -50,7 +50,6 @@ export class CartService {
   }
 
   totalItemsQuantity(): number {
-    console.log(this._cart$);
     return this._cart$.value.reduce(
       (value, cartItem) => value + cartItem.quantity,
       0
