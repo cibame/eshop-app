@@ -1,10 +1,10 @@
 {
   "/api": {
-  "target": "http://admin.zeroezero.eu",
+    "target": "http://admin.zeroezero.eu",
     "secure": false,
     "pathRewrite": {
-    "^/api": ""
-  },
-  "changeOrigin": true
-}
+      "^/api": ""
+    },
+    "changeOrigin": true
+  }
 }
