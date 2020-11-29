@@ -51,6 +51,20 @@
           margin-right: 10px;
           opacity: 0;
           pointer-events: none;
+
+          i {
+            font-size: 18px;
+            font-weight: normal;
+            transition: all 0.1s linear;
+          }
+
+          &:active {
+            i {
+              transition: none;
+              font-size: 22px;
+              margin: -2px;
+            }
+          }
         }
       }
 
@@ -75,7 +89,7 @@
         font-size: 16px;
       }
 
-      &:hover {
+      //&:hover {
         .first-line {
           margin-left: 0;
 
@@ -92,9 +106,10 @@
           .add-to-cart {
             opacity: 1;
             pointer-events: auto;
+            margin-top: -5px;
           }
         }
-      }
+      //}
     }
   }
 

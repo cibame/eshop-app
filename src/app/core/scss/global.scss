@@ -8,17 +8,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 }
 
 .icon-button {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   transition: all 0.1s linear;
   cursor: pointer;
 
   &:active {
     transition: none;
-    font-size: 22px;
-    margin-left: -2px;
-    margin-top: -2px;
-    margin-bottom: -5px;
+    font-size: 20px;
+    margin: -2px;
   }
 }
 

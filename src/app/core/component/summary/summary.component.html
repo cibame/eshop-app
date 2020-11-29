@@ -1,5 +1,5 @@
 <div class="summary-list">
-  <div class="summary-item" *ngFor="let cartItem of cartItems">
+  <div class="summary-item my-2" *ngFor="let cartItem of cartItems">
     <div class="row">
       <div class="col-auto" style="width: 60px">{{ cartItem.quantity }}&nbsp;x</div>
       <div class="col flex-grow-1">
@@ -9,7 +9,7 @@
       <div class="col-auto align-self-end">{{ cartItem.quantity * cartItem.item.price | currency:'EUR' }}</div>
     </div>
   </div>
-  <div class="summary-item" *ngFor="let orderItem of orderItems">
+  <div class="summary-item my-2" *ngFor="let orderItem of orderItems">
     <div class="row">
       <div class="col-auto" style="width: 60px">{{ orderItem.quantity }}&nbsp;x</div>
       <div class="col flex-grow-1">

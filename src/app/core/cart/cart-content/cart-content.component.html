@@ -1,5 +1,5 @@
 <div class="product-list" *ngIf="cartItems?.length">
-  <div class="product-item" *ngFor="let cartItem of cartItems">
+  <div class="product-item my-3" *ngFor="let cartItem of cartItems">
     <div class="row">
       <div class="col flex-grow-1">{{ cartItem.item.name }}</div>
       <i class="icon-button col-auto align-self-center nc-icon nc-simple-remove" (click)="remove(cartItem)"></i>
