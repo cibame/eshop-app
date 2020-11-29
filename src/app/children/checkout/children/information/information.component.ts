@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {CartService} from '../../../../core/cart/cart.service';
+import {OrderType} from '../../../../core/model/order.model';
+import {CreateOrderUser} from '../../../../core/service/order.service';
+import {CheckoutService} from '../../checkout.service';
 
 @Component({
   selector: 'app-information',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationComponent implements OnInit {
 
-  constructor() { }
+  isLoading = false;
+
+  constructor(private checkoutService: CheckoutService,
+              private cartService: CartService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
+  }
+
+  placeOrder(orderInfo: { user: CreateOrderUser, note: string, type: OrderType }): void {
+    this.isLoading = true;
+    this.checkoutService.checkout(orderInfo.user, orderInfo.note, orderInfo.type)
+      .subscribe(res => {
+          this.cartService.empty();
+          this.router.navigate(['ordini', res.id]);
+        }, error => {
+          console.log(error);
+          this.isLoading = false;
+        },
+        () => this.isLoading = false
+      );
   }
 
 }

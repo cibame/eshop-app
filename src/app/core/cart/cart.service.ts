@@ -1,29 +1,28 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Product } from '../model/product.model';
-import { CartItem } from './model/cart-item.model';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {Product} from '../model/product.model';
+import {CartItem} from './model/cart-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private _cart$: BehaviorSubject<CartItem<Product>[]> = new BehaviorSubject<
-    CartItem<Product>[]
-  >([]);
+  private _cart$: BehaviorSubject<CartItem<Product>[]> = new BehaviorSubject<CartItem<Product>[]>([]);
   cart$: Observable<CartItem<Product>[]> = this._cart$.asObservable();
 
   get cart(): CartItem<Product>[] {
     return this._cart$.getValue();
   }
 
-  constructor() {}
+  constructor() {
+  }
 
   add(item: Product, quantity: number = 1): void {
     const ci = this._cart$.value.find((cartItem) => cartItem.item.id === item.id);
     if (ci) {
       ci.quantity += quantity;
     } else {
-      this._cart$.value.push({ item, quantity });
+      this._cart$.value.push({item, quantity});
     }
     this._cart$.next(this._cart$.value);
   }
@@ -54,5 +53,9 @@ export class CartService {
       (value, cartItem) => value + cartItem.quantity,
       0
     );
+  }
+
+  empty(): void {
+    this._cart$.next([]);
   }
 }

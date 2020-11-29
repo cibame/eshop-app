@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {OrderType} from '../../../../../../core/model/order.model';
+import {CreateOrderUser} from '../../../../../../core/service/order.service';
 
 @Component({
   selector: 'app-pickup-form',
@@ -7,7 +9,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./pickup-form.component.scss']
 })
 export class PickupFormComponent implements OnInit {
+  @Output() submitForm: EventEmitter<{ user: CreateOrderUser, note: string, type: OrderType }> = new EventEmitter<{ user: CreateOrderUser; note: string, type: OrderType }>();
+
   form: FormGroup;
+
   constructor(
     private readonly formBuilder: FormBuilder
   ) {
@@ -29,7 +34,17 @@ export class PickupFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      console.log(this.form.getRawValue());
+      this.submitForm.emit({
+        type: OrderType.PICKUP,
+        user: {
+          firstName: this.form.get('firstName').value,
+          lastName: this.form.get('lastName').value,
+          email: this.form.get('email').value,
+          telephone: this.form.get('phone').value,
+          address: ''
+        },
+        note: this.form.get('note').value
+      });
     }
   }
 

@@ -21,12 +21,12 @@
 .nav-tabs {
         font-size: $font-size-medium;
         font-weight: $font-weight-bold;
-        border-bottom: 1px solid #F1EAE0;
+        border-bottom: 1px solid $other-medium-gray;
         margin-bottom: 30px;
         .nav-item{
             .nav-link{
                 border: 0 none;
-                color: $other-medium-gray;
+                //color: $other-medium-gray;
                 background-color: transparent;
             }
             .nav-link:hover{
@@ -60,7 +60,7 @@
                 }
 
                 &:before{
-                    border-bottom: 11px solid $medium-pale-bg;
+                    border-bottom: 11px solid $other-medium-gray;
                     border-left: 11px solid rgba(0, 0, 0, 0);
                     border-right: 11px solid rgba(0, 0, 0, 0);
                     content: "";
@@ -262,7 +262,7 @@
     > li > a{
         display: block;
         padding: 0px $padding-base-horizontal;
-        color: $dark-gray;
+        //color: $dark-gray;
         text-align: center;
         @include opacity(0.8);
 
