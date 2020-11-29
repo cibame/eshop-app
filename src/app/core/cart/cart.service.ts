@@ -15,6 +15,10 @@ export class CartService {
   }
 
   constructor() {
+    if (sessionStorage.getItem('cartContent')) {
+      this._cart$.next(JSON.parse(sessionStorage.getItem('cartContent')));
+    }
+    this._cart$.subscribe(cartItems => sessionStorage.setItem('cartContent', JSON.stringify(cartItems)));
   }
 
   add(item: Product, quantity: number = 1): void {
