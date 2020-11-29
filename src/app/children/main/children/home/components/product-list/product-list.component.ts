@@ -18,6 +18,8 @@ export class ProductListComponent implements OnInit {
   _products: Product[];
   _categoryProducts: CategoryProducts[] = [];
 
+  isLoading: boolean;
+
   get categories(): string[] {
     return Object.keys(this._categoryProducts);
   }
@@ -28,12 +30,14 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this._productService.getProducts().subscribe(
       (res) => {
         this._products = res;
         this.parseCategories();
       },
-      (error) => console.error(error)
+      (error) => console.error(error),
+      () => this.isLoading = false
     );
   }
 
