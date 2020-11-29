@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CartItem} from '../../../../core/cart/model/cart-item.model';
-import {Product} from '../../../../core/model/product.model';
+import {CartItem} from '../../cart/model/cart-item.model';
+import {OrderItem} from '../../model/order.model';
+import {Product} from '../../model/product.model';
 
 @Component({
   selector: 'app-summary',
@@ -11,6 +12,7 @@ export class SummaryComponent implements OnInit {
 
   @Input() value = 0;
   @Input() cartItems: CartItem<Product>[] = [];
+  @Input() orderItems: OrderItem[] = [];
 
   constructor() {
   }

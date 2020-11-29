@@ -27,13 +27,11 @@ export class InformationComponent implements OnInit {
     this.checkoutService.checkout(orderInfo.user, orderInfo.note, orderInfo.type)
       .subscribe(res => {
           this.cartService.empty();
-          this.router.navigate(['ordini', res.id]);
+          this.router.navigate(['order', res.id]);
         }, error => {
           console.log(error);
           this.isLoading = false;
-        },
-        () => this.isLoading = false
-      );
+        });
   }
 
 }

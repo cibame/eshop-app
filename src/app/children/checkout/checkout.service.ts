@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {CartService} from '../../core/cart/cart.service';
-import {Order, OrderType} from '../../core/model/order.model';
+import {OrderDto, OrderType} from '../../core/model/order.model';
 import {CreateOrderUser, OrderService} from '../../core/service/order.service';
 
 @Injectable({
@@ -10,9 +10,10 @@ import {CreateOrderUser, OrderService} from '../../core/service/order.service';
 export class CheckoutService {
 
   constructor(private orderService: OrderService,
-              private cartService: CartService) { }
+              private cartService: CartService) {
+  }
 
-  checkout(user: CreateOrderUser, note: string, type: OrderType): Observable<Order> {
+  checkout(user: CreateOrderUser, note: string, type: OrderType): Observable<OrderDto> {
     return this.orderService.sendOrder(this.cartService.cart, user, note, type);
   }
 }

@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {CartItem} from '../cart/model/cart-item.model';
-import {Order, OrderType} from '../model/order.model';
+import {OrderDto, OrderType} from '../model/order.model';
 import {Product} from '../model/product.model';
 
 export interface CreateOrderUser {
@@ -33,7 +33,7 @@ export class OrderService {
   constructor(private readonly _http: HttpClient) {
   }
 
-  public sendOrder(cart: CartItem<Product>[], user: CreateOrderUser, note: string, type: OrderType): Observable<Order> {
+  public sendOrder(cart: CartItem<Product>[], user: CreateOrderUser, note: string, type: OrderType): Observable<OrderDto> {
     const order: CreateOrderRequest = {
       note,
       type,
@@ -43,6 +43,11 @@ export class OrderService {
         quantity: c.quantity
       }))
     };
-    return this._http.post<Order>(environment.baseUrl + '/orders', order);
+    console.log(order);
+    return this._http.post<OrderDto>(environment.baseUrl + '/orders', order);
+  }
+
+  public get(id: string): Observable<OrderDto> {
+    return this._http.get<OrderDto>(environment.baseUrl + '/orders/' + id);
   }
 }
