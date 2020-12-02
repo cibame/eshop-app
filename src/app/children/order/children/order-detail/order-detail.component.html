@@ -11,21 +11,27 @@
           <h5 class="mt-0">Grazie {{ order.user.firstName || order.user.lastName }}!</h5>
         </div>
       </div>
-      <div class="my-3" *ngIf="order.status === orderStatus.TO_BE_CONFIRMED">
+      <div class="my-3"
+        *ngIf="order.status === orderStatus.WAITING_CONFIRMATION">
         <h5>Il tuo ordine è in attesa di conferma</h5>
-        <p>Abbiamo preso in carico la tua richiesta. È stata inviata una email contenente le informazioni dell'ordine all'indirizzo <b>{{ order.user.email }}</b>.</p>
+        <p>Abbiamo preso in carico la tua richiesta. È stata inviata una email contenente le informazioni dell'ordine
+          all'indirizzo <b>{{ order.user.email }}</b>.</p>
       </div>
-      <div class="my-3" *ngIf="order.status === orderStatus.CONFIRMED">
+      <div class="my-3"
+        *ngIf="order.status === orderStatus.CONFIRMED">
         <h5>Il tuo ordine è confermato!</h5>
-        <p>Abbiamo confermato il tuo ordine e lo stiamo preparando. È stata inviata una email di conferma all'indirizzo <b>{{ order.user.email }}</b>.</p>
+        <p>Abbiamo confermato il tuo ordine e lo stiamo preparando. È stata inviata una email di conferma all'indirizzo
+          <b>{{ order.user.email }}</b>.</p>
       </div>
-      <div class="my-3" *ngIf="order.status === orderStatus.CANCELLED">
+      <div class="my-3"
+        *ngIf="order.status === orderStatus.CANCELLED">
         <h5>Il tuo ordine è annullato</h5>
-        <p>Purtroppo abbiamo dovuto annullare il tuo ordine. È stata inviata una email all'indirizzo <b>{{ order.user.email }}</b>.</p>
+        <p>Purtroppo abbiamo dovuto annullare il tuo ordine. È stata inviata una email all'indirizzo
+          <b>{{ order.user.email }}</b>.</p>
       </div>
       <p>Controlla questa pagina per avere aggiornamenti sul tuo ordine.</p>
 
-      <hr/>
+      <hr />
       <div *ngIf="order.type === orderType.DELIVERY">
         <div class="row align-items-center my-3">
           <div class="col-auto">
@@ -36,7 +42,8 @@
             <div class="mt-0">Indirizzo: {{ order.user.address }}!</div>
           </div>
         </div>
-        <div class="row align-items-center my-3" *ngIf="order.note">
+        <div class="row align-items-center my-3"
+          *ngIf="order.note">
           <div class="col-auto">
             <i class="nc-icon nc-paper"></i>
           </div>
@@ -47,7 +54,8 @@
         <div class="my-3">
           <p>Ricordiamo che tutti gli ordini sono da ritenersi validi solamente a seguito di <b>conferma</b>.</p>
           <p>Di seguito potete trovare indicazione sui giorni previsti per la consegna sulle varie zone:</p>
-          <p><a href="assets/ordinizero.pdf" target="_blank">Scarica informazioni di consegna</a></p>
+          <p><a href="assets/ordinizero.pdf"
+              target="_blank">Scarica informazioni di consegna</a></p>
         </div>
       </div>
       <div *ngIf="order.type === orderType.PICKUP">
@@ -59,7 +67,8 @@
             <div>{{ order.user.firstName }} {{ order.user.lastName }}</div>
           </div>
         </div>
-        <div class="row align-items-center my-3" *ngIf="order.note">
+        <div class="row align-items-center my-3"
+          *ngIf="order.note">
           <div class="col-auto">
             <i class="nc-icon nc-paper"></i>
           </div>
@@ -69,14 +78,16 @@
         </div>
         <div class="my-3">
           <p>Ricordiamo che tutti gli ordini sono da ritenersi validi solamente a seguito di <b>conferma</b>.</p>
-          <p>Il tuo ordine sarà disponibile per il ritiro in negozio a partire da <b>un'ora</b> dopo la conferma dell'ordine.</p>
+          <p>Il tuo ordine sarà disponibile per il ritiro in negozio a partire da <b>un'ora</b> dopo la conferma
+            dell'ordine.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="col-12 col-md-5">
     <div class="section">
-      <app-summary [orderItems]="order.products" [value]="order.value"></app-summary>
+      <app-summary [orderItems]="order.products"
+        [value]="order.value"></app-summary>
     </div>
   </div>
 </div>

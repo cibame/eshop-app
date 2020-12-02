@@ -1,15 +1,15 @@
-import {CreateOrderUser} from '../service/order.service';
-import {Product} from './product.model';
+import { CreateOrderUser } from '../service/order.service';
+import { Product } from './product.model';
 
 export enum OrderType {
   PICKUP = 'pickup',
-  DELIVERY = 'delivery'
+  DELIVERY = 'delivery',
 }
 
 export enum OrderStatus {
-  TO_BE_CONFIRMED = 'toBeConfirmed',
+  WAITING_CONFIRMATION = 'waiting-confirmation',
   CONFIRMED = 'confirmed',
-  CANCELLED = 'cancelled'
+  CANCELLED = 'cancelled',
 }
 
 export interface OrderItem {
@@ -46,7 +46,7 @@ export class Order implements OrderDto {
     this.products = order.products;
     this.dateCreated = order.dateCreated;
     // TODO: use real status instead of address check
-    this.status = order.status || OrderStatus.TO_BE_CONFIRMED;
+    this.status = order.status || OrderStatus.WAITING_CONFIRMATION;
   }
 
   get value(): number {
