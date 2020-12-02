@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://admin.zeroezero.eu",
+    "target": "http://api.zeroezero.eu",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
