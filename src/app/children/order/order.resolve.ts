@@ -10,6 +10,6 @@ export class OrderResolve implements Resolve<OrderDto> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<OrderDto> {
-    return this.orderService.get(route.paramMap.get('id'));
+    return this.orderService.get(route.paramMap.get('uuid'));
   }
 }

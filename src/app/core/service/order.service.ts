@@ -47,7 +47,7 @@ export class OrderService {
     return this._http.post<OrderDto>(environment.baseUrl + '/orders', order);
   }
 
-  public get(id: string): Observable<OrderDto> {
-    return this._http.get<OrderDto>(environment.baseUrl + '/orders/' + id);
+  public get(uuid: string): Observable<OrderDto> {
+    return this._http.get<OrderDto>(environment.baseUrl + '/orders/' + uuid);
   }
 }

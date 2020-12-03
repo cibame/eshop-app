@@ -10,7 +10,7 @@ const routes = [
     component: OrderComponent,
     children: [
       {
-        path: ':id',
+        path: ':uuid',
         component: OrderDetailComponent,
         resolve: {
           order: OrderResolve

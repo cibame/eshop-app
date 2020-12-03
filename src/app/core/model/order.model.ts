@@ -21,6 +21,7 @@ export interface OrderItem {
 
 export interface OrderDto {
   id: number;
+  uuid: string;
   note: string;
   type: OrderType;
   user: CreateOrderUser;
@@ -31,6 +32,7 @@ export interface OrderDto {
 
 export class Order implements OrderDto {
   id: number;
+  uuid: string;
   note: string;
   type: OrderType;
   user: CreateOrderUser;
@@ -40,6 +42,7 @@ export class Order implements OrderDto {
 
   constructor(order: OrderDto) {
     this.id = order.id;
+    this.uuid = order.uuid;
     this.note = order.note;
     this.type = order.type;
     this.user = order.user;
