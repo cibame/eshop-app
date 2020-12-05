@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://api.zeroezero.eu',
+  baseUrl: 'https://api.zeroezero.eu',
 };
