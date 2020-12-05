@@ -1,29 +1,31 @@
 <!-- Pickup form -->
-<form #formDir="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+<form #formDir="ngForm"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="needs-validation"
+  novalidate>
   <div class="form-section">
     <div class="form-section-header">Informazioni di contatto</div>
     <div class="form-row">
       <div class="col-12 col-md-6">
         <div class="form-group form-label-group">
           <input type="text"
-                 class="form-control"
-                 id="pickupFirstName"
-                 placeholder="Nome (opzionale)"
-                 formControlName="firstName"
-          >
+            class="form-control"
+            id="pickupFirstName"
+            placeholder="Nome (opzionale)"
+            formControlName="firstName">
           <label for="pickupFirstName">Nome (opzionale)</label>
         </div>
       </div>
       <div class="col-12 col-md-6">
         <div class="form-group form-label-group">
           <input type="text"
-                 class="form-control"
-                 [class.is-invalid]="form.get('lastName').invalid && formDir.submitted"
-                 id="pickupLastName"
-                 placeholder="Cognome"
-                 formControlName="lastName"
-                 (input)="resetValidation('lastName')"
-          >
+            class="form-control"
+            [class.is-invalid]="form.get('lastName').invalid && formDir.submitted"
+            id="pickupLastName"
+            placeholder="Cognome"
+            formControlName="lastName"
+            (input)="resetValidation('lastName')">
           <label for="pickupLastName">Cognome</label>
           <div class="invalid-feedback">
             <span *ngIf="form.get('lastName').errors?.required">Inserisci il tuo cognome</span>
@@ -54,13 +56,12 @@
       <div class="col-12 col-md-6">
         <div class="form-group form-label-group">
           <input type="text"
-                 class="form-control"
-                 [class.is-invalid]="form.get('email').invalid && formDir.submitted"
-                 id="email"
-                 placeholder="Email"
-                 formControlName="email"
-                 (input)="resetValidation('email')"
-          >
+            class="form-control"
+            [class.is-invalid]="form.get('email').invalid && formDir.submitted"
+            id="email"
+            placeholder="Email"
+            formControlName="email"
+            (input)="resetValidation('email')">
           <label for="email">Email</label>
           <div class="invalid-feedback">
             <span *ngIf="form.get('email').errors?.required">Inserisci un indirizzo email</span>
@@ -71,13 +72,12 @@
       <div class="col-12 col-md-6">
         <div class="form-group form-label-group">
           <input type="text"
-                 class="form-control"
-                 [class.is-invalid]="form.get('phone').invalid && formDir.submitted"
-                 id="phone"
-                 placeholder="Email o numero di cellulare"
-                 formControlName="phone"
-                 (input)="resetValidation('phone')"
-          >
+            class="form-control"
+            [class.is-invalid]="form.get('phone').invalid && formDir.submitted"
+            id="phone"
+            placeholder="Email o numero di cellulare"
+            formControlName="phone"
+            (input)="resetValidation('phone')">
           <label for="phone">Numero di telefono</label>
           <div class="invalid-feedback">
             <span *ngIf="form.get('phone').errors?.required">Inserisci un numero di telefono</span>
@@ -95,7 +95,8 @@
     <div class="form-section-header">Informazioni aggiuntive</div>
     <div class="form-row">
       <div class="col-12">
-        <textarea class="form-control" formControlName="note"></textarea>
+        <textarea class="form-control"
+          formControlName="note"></textarea>
         <small class="form-text text-muted">Inserisci delle informazioni aggiuntive riguardanti il tuo ordine.</small>
       </div>
     </div>
@@ -105,15 +106,15 @@
     <div class="form-check">
       <label class="form-check-label">
         <input type="checkbox"
-               class="form-check-input"
-               [class.is-invalid]="form.get('acceptance').invalid && formDir.submitted"
-               formControlName="acceptance"
-               (input)="resetValidation('acceptance')"
-        >
+          class="form-check-input"
+          [class.is-invalid]="form.get('acceptance').invalid && formDir.submitted"
+          formControlName="acceptance"
+          (input)="resetValidation('acceptance')">
         Accetto i termini e le condizioni di trattamento dei dati personali
         <span class="form-check-sign"></span>
         <div class="invalid-feedback">
-          <span *ngIf="form.get('acceptance').errors?.required">Devi accettare le condizioni per poter emettere un ordine</span>
+          <span *ngIf="form.get('acceptance').errors?.required">Devi accettare le condizioni per poter emettere un
+            ordine</span>
         </div>
       </label>
     </div>
@@ -121,16 +122,26 @@
 
   <div class="form-section">
     <p>Ricordiamo che tutti gli ordini sono da ritenersi validi solamente a seguito di <b>conferma</b>.</p>
-    <p>Il tuo ordine sarà disponibile per il ritiro in negozio a partire da <b>un'ora</b> dopo la conferma dell'ordine.</p>
+    <p>Il tuo ordine sarà disponibile per il ritiro in negozio a partire da <b>un'ora</b> dopo la conferma dell'ordine.
+    </p>
+  </div>
+
+  <div class="form-section">
+    <p>Per qualsiasi informazione potete contattarci telefonicamente allo <b><a
+          href="tel:+393651904404">03651904404</a></b> oppure <b><a
+          href="mailto:info@zeroezero.eu">info@zeroezero.eu</a></b>.</p>
   </div>
 
   <div class="d-flex justify-content-between">
-    <button class="btn btn-link btn-primary" type="button" routerLink="../">
+    <button class="btn btn-link btn-primary"
+      type="button"
+      routerLink="../">
       <div class="d-flex align-items-center">
         <i class="nc-icon nc-minimal-left"></i>
         <span style="margin-left: 10px">Torna al menu</span>
       </div>
     </button>
-    <button class="btn btn-primary" type="submit">Conferma ordine</button>
+    <button class="btn btn-primary"
+      type="submit">Conferma ordine</button>
   </div>
 </form>
