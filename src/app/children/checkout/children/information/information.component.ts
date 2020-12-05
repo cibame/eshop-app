@@ -27,7 +27,7 @@ export class InformationComponent implements OnInit {
     this.checkoutService.checkout(orderInfo.user, orderInfo.note, orderInfo.type)
       .subscribe(res => {
           this.cartService.empty();
-          this.router.navigate(['order', res.id]);
+          this.router.navigate(['order', res.uuid]);
         }, error => {
           console.log(error);
           this.isLoading = false;
