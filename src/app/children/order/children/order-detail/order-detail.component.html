@@ -20,14 +20,15 @@
       <div class="my-3"
         *ngIf="order.status === orderStatus.CONFIRMED">
         <h5>Il tuo ordine è confermato!</h5>
-        <p>Abbiamo confermato il tuo ordine e lo stiamo preparando. È stata inviata una email di conferma all'indirizzo
-          <b>{{ order.user.email }}</b>.</p>
+        <p>Abbiamo confermato il tuo ordine e lo stiamo preparando.</p>
       </div>
       <div class="my-3"
         *ngIf="order.status === orderStatus.CANCELLED">
         <h5>Il tuo ordine è annullato</h5>
-        <p>Purtroppo abbiamo dovuto annullare il tuo ordine. È stata inviata una email all'indirizzo
-          <b>{{ order.user.email }}</b>.</p>
+      </div>
+      <div class="my-3"
+        *ngIf="order.status === orderStatus.DELIVERED">
+        <h5>Il tuo ordine è stato consegnato</h5>
       </div>
       <p>Controlla questa pagina per avere aggiornamenti sul tuo ordine.</p>
 

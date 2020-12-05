@@ -10,6 +10,7 @@ export enum OrderStatus {
   WAITING_CONFIRMATION = 'waiting-confirmation',
   CONFIRMED = 'confirmed',
   CANCELLED = 'cancelled',
+  DELIVERED = 'delivered',
 }
 
 export interface OrderItem {
