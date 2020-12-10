@@ -1,0 +1,30 @@
+<div class="panel-bg" [class.open]="isPanelOpen" (click)="back.emit()"></div>
+<div class="panel"
+     [class.open]="isPanelOpen">
+  <div class="panel-header row align-items-center">
+    <div class="col-auto flex-grow-1">
+      <span style="color: #0B1011">Carrello&nbsp;</span>
+      <span>{{ count }}</span>
+    </div>
+    <div class="back-button"
+         (click)="back.emit()">
+      <i class="nc-icon nc-simple-remove"></i>
+    </div>
+  </div>
+  <div class="dropdown-divider"
+       style="margin: 0.5rem -40px;"></div>
+  <div class="panel-content">
+    <app-cart-content [cartItems]="cartItems" [value]="value"></app-cart-content>
+  </div>
+  <div class="dropdown-divider"
+       style="margin: 0.5rem -40px;"></div>
+  <div class="panel-actions row align-items-center">
+
+    <button type="button"
+            class="btn btn-primary"
+            [disabled]="!cartItems.length"
+            style="width: 100%"
+            routerLink="checkout">Procedi all'ordine
+    </button>
+  </div>
+</div>

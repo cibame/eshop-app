@@ -1,0 +1,40 @@
+:host {
+  margin-top: 8px;
+
+  .button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 16px;
+
+    .nc-icon {
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    &:hover .nc-icon {
+      opacity: 1;
+    }
+
+    .badge-wrapper {
+      position: absolute;
+      display: inline-block;
+      top: -4px;
+      left: 30px;
+
+      .badge {
+        height: 19px;
+        line-height: 1;
+        background-color: #F02849;
+        font-weight: 600;
+        min-width: 19px;
+        border-radius: 100px;
+        color: #FFFFFF;
+
+        .badge-content {
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}

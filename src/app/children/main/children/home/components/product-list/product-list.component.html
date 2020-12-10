@@ -1,0 +1,38 @@
+<ng-container *ngFor="let categoryProduct of _categoryProducts">
+  <div class="product-category">
+    <h2 style="text-align: center" *ngIf="categoryProduct.category.name">
+      <span class="name">{{ categoryProduct.category.name }}</span>
+    </h2>
+    <div class="description" *ngIf="categoryProduct.category.description" [innerHTML]="categoryProduct.category.description"></div>
+  </div>
+  <ul class="product-list container">
+    <li class="product-item row my-3" *ngFor="let product of categoryProduct.products; index as i">
+      <div class="col-auto flex-grow-1">
+        <div class="first-line">
+          <div class="d-flex align-items-start">
+            <button class="add-to-cart align-self-center btn btn-outline-danger btn-just-icon" type="button" (click)="addToCart(product)">
+              <i class="nc-icon nc-simple-add icon-button"></i>
+            </button>
+<!--            <i class="add-to-cart icon-button align-self-center nc-icon nc-bag-16" (click)="addToCart(product)"></i>-->
+            <div class="name">{{ product.name }}</div>
+            <div class="spacer dotted flex-grow-1">&nbsp;</div>
+            <div class="price">{{ product.price | currency:'EUR' }}</div>
+          </div>
+        </div>
+        <div class="subtitle">{{ product.subtitle }}</div>
+        <div class="ingredients">{{ product.ingredients }}</div>
+        <div class="description">{{ product.description }}</div>
+      </div>
+    </li>
+  </ul>
+</ng-container>
+
+<div class="loader d-flex justify-content-center" *ngIf="isLoading">
+  <div class="spinner-grow text-danger align-self-center" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="!isLoading && !_products.length">
+  <p>Siamo spiacenti. Al momento non abbiamo prodotti disponibili.</p>
+</div>

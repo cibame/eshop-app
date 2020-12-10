@@ -1,0 +1,34 @@
+:host {
+  .navbar {
+    color: #66615B;
+    font-size: 16px;
+
+    &.navbar-transparent {
+      color: #66615B !important;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      font-size: 14px;
+    }
+
+    .nav-link i {
+      font-size: 18px;
+    }
+
+    .navbar-brand {
+      font-size: 18px;
+    }
+  }
+
+  .navbar-transparent .navbar-nav .nav-item .nav-link:not(.btn), [class*=bg] .navbar-nav .nav-item .nav-link:not(.btn) {
+    color: #66615B;
+    border-color: #66615B;
+  }
+
+  .navbar-transparent .navbar-brand, [class*=bg] .navbar-brand {
+    color: #66615B;
+  }
+  .navbar[class*=bg-] .navbar-toggler .navbar-toggler-bar, .navbar.navbar-transparent .navbar-toggler .navbar-toggler-bar {
+    background: #66615B;
+  }
+}
